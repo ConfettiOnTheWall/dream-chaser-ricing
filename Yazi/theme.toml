@@ -1,0 +1,70 @@
+# ~/.config/yazi/theme.toml
+
+[mgr]
+cwd = { fg = "#C9A063" }
+find_keyword    = { fg = "#C9A063", bold = true }
+find_position   = { fg = "#D9836A", bg = "reset", bold = true }
+symlink_target  = { fg = "#6B5847" }
+
+marker_copied   = { fg = "#9C9169", bg = "#9C9169" }
+marker_cut      = { fg = "#C2595A", bg = "#C2595A" }
+marker_marked   = { fg = "#C9A063", bg = "#C9A063" }
+marker_selected = { fg = "#A6697A", bg = "#A6697A" }
+
+count_copied    = { fg = "#1C1512", bg = "#9C9169" }
+count_cut       = { fg = "#1C1512", bg = "#C2595A" }
+count_selected  = { fg = "#1C1512", bg = "#A6697A" }
+
+border_symbol = "│"
+border_style  = { fg = "#2B2118" }
+
+[tabs]
+active    = { fg = "#1C1512", bg = "#C2595A", bold = true }
+inactive  = { fg = "#A38F76", bg = "#2B2118" }
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+[mode]
+normal_main = { fg = "#1C1512", bg = "#C2595A", bold = true }
+normal_alt  = { fg = "#E8D9BE", bg = "#2B2118" }
+select_main = { fg = "#1C1512", bg = "#A6697A", bold = true }
+select_alt  = { fg = "#E8D9BE", bg = "#2B2118" }
+unset_main  = { fg = "#1C1512", bg = "#9C9169", bold = true }
+unset_alt   = { fg = "#E8D9BE", bg = "#2B2118" }
+
+[status]
+overall   = { fg = "#E8D9BE", bg = "#1C1512" }
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+perm_type  = { fg = "#9C9169" }
+perm_read  = { fg = "#C9A063" }
+perm_write = { fg = "#C2595A" }
+perm_exec  = { fg = "#7C9A92" }
+perm_sep   = { fg = "#6B5847" }
+
+progress_label  = { fg = "#E8D9BE", bold = true }
+progress_normal = { fg = "#C2595A", bg = "#2B2118" }
+progress_error  = { fg = "#D97071", bg = "#2B2118" }
+[filetype]
+rules = [
+    # Diretórios
+    { url = "*/", fg = "#C2595A" },
+
+    # Imagens
+    { mime = "image/*", fg = "#D8AF83" },
+
+    # Áudio/vídeo
+    { mime = "{audio,video}/*", fg = "#A6697A" },
+
+    # Executáveis
+    { url = "*", is = "exec", fg = "#7C9A92" },
+
+    # Links quebrados
+    { url = "*", is = "orphan", fg = "#D97071" },
+]
+[indicator]
+parent  = { fg = "#C9A063", bg = "#2B2118" }
+current = { fg = "#1C1512", bg = "#C2595A" }
+preview = { fg = "#C9A063", bg = "#2B2118" }
+padding = { open = "▐", close = "▌" }

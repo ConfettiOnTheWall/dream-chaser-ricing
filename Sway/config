@@ -1,0 +1,107 @@
+#AUTO TILLING IMPORTANTE PARA FICAR BONITO
+exec_always autotiling
+exec nm-applet
+
+default_border pixel 1
+gaps inner 8px
+gaps outer 8px
+
+
+#------Ajuste Monitores------ ATIVAR SOMENTE SE FOR NECESSARIO
+#configuration on .config/kanshi/config
+#exec kanshi
+
+#------WayBar--------
+exec_always --no-startup-id pkill waybar; waybar
+
+# ------------- Wallpapers
+exec_always swaybg -i /home/confetti/Pictures/Wallpapers/girl.png
+
+set $mod Mod4
+
+set $term kitty
+#set $files nemo
+set $files exec kitty --class yazi -e yazi
+set $browser brave-browser
+
+#set $menu wofi --show drun --prompt "Run:"
+set $menu wmenu-run  -p "Run:" \
+    -f "JetBrainsMono Nerd Font 11" \
+    -N 1C1512 -n E8D9BE \
+    -M 1C1512 -m C9A063 \
+    -S C2595A -s 1C1512
+
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
+bindsym $mod+q kill
+bindsym $mod+e exec $files
+bindsym $mod+b exec $browser
+
+bindsym $mod+Shift+c reload
+
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | swappy -f -
+
+# layouts
+bindsym $mod+p layout toggle split   # alterna horizontal/vertical automático
+bindsym $mod+s layout stacking       # layout empilhado (stacked)
+#bindsym $mod+w layout tabbed         # layout em abas (tabbed)
+bindsym $mod+h split h               # força divisão horizontal
+bindsym $mod+v split v               # força divisão vertical
+
+
+bindsym $mod+Space floating toggle
+bindsym $mod+f fullscreen
+
+#bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you want to exit sway?' -B "Yes"  'swaymsg exit'
+
+
+# class                 border    background text      indicator child_border
+
+client.focused          #D7A15A #A95357 #F5EEE3 #D7A15A #D7A15A
+client.focused_inactive #8B4B4D #8B4B4D #D8C8B7 #8B4B4D #8B4B4D
+client.unfocused        #564B49 #564B49 #A89188 #564B49 #564B49
+client.urgent           #C65A5A #C65A5A #F5EEE3 #C65A5A #C65A5A
+client.placeholder      #564B49 #564B49 #A89188 #564B49 #564B49
+
+# Keyboard Language Setup, alt + shift to toggle
+input * {
+  xkb_layout "us"
+  xkb_variant "intl"
+  xkb_options "grp:alt_space_toggle"
+}
+
+# Containers configuration
+
+# move container to other monitor
+bindsym $mod+Shift+Left move container to output left
+bindsym $mod+Shift+Right move container to output right
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+
+# Switch the monitor to a specific workspace.
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move hovered windows to a specific workspace.
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# Hide/Minimize Windows
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
