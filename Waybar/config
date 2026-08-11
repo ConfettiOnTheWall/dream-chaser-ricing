@@ -1,0 +1,35 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 8,
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["mpris"],
+  "modules-right": ["clock","pulseaudio", "network", "battery"],
+
+  "mpris": {
+  "format": "{artist} - {title}",
+  "format-paused": " {artist} - {title}",
+  "max-length": 30,
+  "player": ["spotify" ,"firefox"]
+  },
+
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " muted",
+    "format-icons": {
+      "default": ["", ""]
+    }
+  },
+
+  "network": {
+    "interval": 5,
+    "format-wifi": "WIFI: {essid} ({signalStrength}%)",
+    "format-ethernet": "ETHERNET",
+    "format-disconnected": "DISCONNECTED"
+  },
+
+  "battery": {
+    "format": "{capacity}%"
+  }
+}

@@ -8,38 +8,50 @@ gaps outer 8px
 
 
 #------Ajuste Monitores------ ATIVAR SOMENTE SE FOR NECESSARIO
+
 #configuration on .config/kanshi/config
 #exec kanshi
 
 #------WayBar--------
-exec_always --no-startup-id pkill waybar; waybar
+
+exec dbus-update-activation-environment --systemd --all
+bar {
+	swaybar_command waybar
+}
 
 # ------------- Wallpapers
+
 exec_always swaybg -i /home/confetti/Pictures/Wallpapers/girl.png
 
+
+
+#------- Set Defaults -------------
+
 set $mod Mod4
-
 set $term kitty
-#set $files nemo
+set $code code
 set $files exec kitty --class yazi -e yazi
-set $browser brave-browser
+set $browser firefox
 
-#set $menu wofi --show drun --prompt "Run:"
 set $menu wmenu-run  -p "Run:" \
     -f "JetBrainsMono Nerd Font 11" \
     -N 1C1512 -n E8D9BE \
     -M 1C1512 -m C9A063 \
     -S C2595A -s 1C1512
 
+#------ Set Binds ------------------
+
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+q kill
 bindsym $mod+e exec $files
 bindsym $mod+b exec $browser
+bindsym $mod+c exec $code
 
 bindsym $mod+Shift+c reload
 
-bindsym $mod+Shift+s exec grim -g "$(slurp)" - | swappy -f -
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | swappy -f - #PRECISA ARRUMAR
+
 
 # layouts
 bindsym $mod+p layout toggle split   # alterna horizontal/vertical automático
@@ -48,11 +60,10 @@ bindsym $mod+s layout stacking       # layout empilhado (stacked)
 bindsym $mod+h split h               # força divisão horizontal
 bindsym $mod+v split v               # força divisão vertical
 
-
 bindsym $mod+Space floating toggle
 bindsym $mod+f fullscreen
 
-#bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you want to exit sway?' -B "Yes"  'swaymsg exit'
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you want to exit sway?' -B "Yes"  'swaymsg exit'
 
 
 # class                 border    background text      indicator child_border
